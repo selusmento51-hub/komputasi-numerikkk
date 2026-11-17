@@ -1,0 +1,59 @@
+# Algoritma Penyelesaian Sistem Persamaan Linear (SPL) 3 Variabel
+**Metode: Eliminasi Gauss-Jordan**
+
+## 1. Deskripsi Masalah
+Sistem Persamaan Linear (SPL) 3 variabel terdiri dari tiga persamaan linear dengan tiga variabel yang tidak diketahui ($x, y, z$). Bentuk umum dari sistem ini adalah:
+$$a_{11}x + a_{12}y + a_{13}z = b_1$$
+$$a_{21}x + a_{22}y + a_{23}z = b_2$$
+$$a_{31}x + a_{32}y + a_{33}z = b_3$$
+
+Tujuan algoritma ini adalah menemukan nilai skalar unik untuk $x, y,$ dan $z$ yang memenuhi ketiga persamaan tersebut secara bersamaan menggunakan **Metode Eliminasi Gauss-Jordan** (mengubah matriks augmented menjadi matriks identitas).
+
+---
+
+## 2. Input dan Output
+* **Input:** 
+  * Matriks koefisien $A$ berukuran $3 \times 3$ yang berisi konstanta $a_{ij}$.
+  * Vektor konstanta $B$ berukuran $3 \times 1$ yang berisi nilai hasil $b_i$.
+* **Output:** 
+  * Vektor solusi $X = [x, y, z]^T$, atau pesan peringatan jika sistem tidak memiliki solusi unik (matriks singular).
+
+---
+
+## 3. Langkah-Langkah Algoritma (Pseudocode Terstruktur)
+
+1. **Mulai.**
+2. **Pembentukan Matriks Augmented:**
+   Gabungkan matriks koefisien $A$ dan vektor hasil $B$ menjadi matriks augmented $[A|B]$ berukuran $3 \times 4$:
+   $$M = \begin{bmatrix} a_{11} & a_{12} & a_{13} & | & b_1 \\ a_{21} & a_{22} & a_{23} & | & b_2 \\ a_{31} & a_{32} & a_{33} & | & b_3 \end{bmatrix}$$
+3. **Iterasi Utama (Untuk setiap kolom pivot $i = 0, 1, 2$):**
+   * **Langkah 3a (Partial Pivoting / Pengecekan Pivot):**
+     Cari baris dengan nilai absolut terbesar pada kolom $i$ mulai dari baris $i$ hingga baris $2$. Jika baris tersebut bukan baris $i$, tukar posisi baris $i$ dengan baris tersebut untuk menghindari pembagian dengan nol (*division by zero*) dan mengurangi galat pembulatan.
+   * **Langkah 3b (Validasi Solusi Unik):**
+     Periksa apakah elemen diagonal utama $M[i][i] == 0$. Jika bernilai nol, hentikan proses dan tampilkan pesan *"Sistem tidak memiliki solusi unik"*.
+   * **Langkah 3c (Normalisasi Baris Pivot):**
+     Bagi seluruh elemen pada baris $i$ dengan nilai elemen pivot $M[i][i]$ sehingga elemen diagonal utama $M[i][i]$ bernilai $1$:
+     $$\text{Baris}_i \leftarrow \frac{\text{Baris}_i}{M[i][i]}$$
+   * **Langkah 3d (Eliminasi Kolom):**
+     Untuk setiap baris $j = 0, 1, 2$ di mana $j \neq i$:
+     Ambil faktor pengali $f = M[j][i]$. Kurangi baris $j$ dengan hasil kali faktor $f$ dan baris $i$ sehingga seluruh elemen di atas dan di bawah pivot menjadi $0$:
+     $$\text{Baris}_j \leftarrow \text{Baris}_j - (f \times \text{Baris}_i)$$
+4. **Ekstraksi Hasil:**
+   Setelah matriks berubah menjadi bentuk matriks identitas di sisi kiri:
+   $$\begin{bmatrix} 1 & 0 & 0 & | & x \\ 0 & 1 & 0 & | & y \\ 0 & 0 & 1 & | & z \end{bmatrix}$$
+   Ambil elemen kolom terakhir ($M[0][3], M[1][3], M[2][3]$) sebagai nilai akhir variabel $x, y,$ dan $z$.
+5. **Tampilkan Hasil** ($x, y, z$).
+6. **Selesai.**
+
+---
+
+## 4. Contoh Studi Kasus
+Misalkan diberikan sistem persamaan berikut:
+* $2x + y - z = 8$
+* $-3x - y + 2z = -11$
+* $-2x + y + 2z = -3$
+
+Dengan menerapkan langkah-langkah Eliminasi Gauss-Jordan di atas, diperoleh matriks identitas akhir dengan solusi:
+* **$x = 2$**
+* **$y = 3$**
+* **$z = -1$**
