@@ -1,0 +1,19 @@
+
+[PROMPT 1 - TUGAS NOMOR 5: ALGORITMA SPL 3 VARIABEL]
+"Tolong buatkan dokumen algoritma formal penyelesaian Sistem Persamaan Linear (SPL) 3 variabel menggunakan Metode Eliminasi Gauss-Jordan. Sertakan definisi masalah, input/output, langkah-langkah pseudocode terstruktur, serta contoh studi kasus perhitungan manual."
+
+--------------------------------------------------------------------------------
+
+[PROMPT 2 - TUGAS NOMOR 6 & 7: KODE PYTHON GOOGLE COLAB SPL 3 VARIABEL]
+"Tolong buatkan kode program Python untuk menyelesaikan Sistem Persamaan Linear 3 variabel menggunakan Metode Eliminasi Gauss-Jordan. Kode harus dirancang agar bisa dijalankan di Google Colab, terbagi ke dalam beberapa cell terpisah, dan berikan penjelasan detail pada setiap baris kodenya agar mudah dipahami."
+
+--------------------------------------------------------------------------------
+
+[PROMPT 3 - TUGAS NOMOR 12: ALGORITME & KODE PYTHON METODE BISECTION]
+"Tolong buatkan algoritma dan kode Python untuk mencari akar persamaan non-linear menggunakan Metode Bisection (Bagi Dua). Sertakan pembuatan grafik fungsi menggunakan matplotlib dan pastikan kode tertata rapi dalam cell-cell Google Colab lengkap dengan dokumentasi dan penjelasan detail tiap baris kodenya."
+
+--------------------------------------------------------------------------------
+
+[PROMPT 4 - TUGAS NOMOR 4: STRUKTUR LINK PORTFOLIO]
+"Tolong buatkan format teks file links.txt yang berisi daftar tautan akun GitHub, Repository Komputasi Numerik, Google Colab, dan profil LinkedIn untuk keperluan pengumpulan portofolio tugas."
+================================================================================
